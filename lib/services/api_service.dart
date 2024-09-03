@@ -39,4 +39,18 @@ class ApiService {
       throw Exception('Failed to load driver details');
     }
   }
+
+ Future<List<String>> fetchDriversBySeason(String season) async {
+   final response = await http.get(Uri.parse('$baseUrl/$season/drivers.json'));
+   if (response.statusCode == 200) {
+     final data = jsonDecode(response.body);
+     return (data['MRData']['DriverTable']['Drivers'] as List)
+         .map((driver) => driver['familyName'].toString())
+         .toList();
+   } else {
+     throw Exception('Failed to load drivers');
+   }
+}
+
+
 }
