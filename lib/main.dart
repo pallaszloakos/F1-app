@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'services/api_service.dart';
-import 'package:f1_app/seasons_page.dart';
+import 'package:f1_app/views/seasons_page.dart';
+import 'package:f1_app/config.dart';
 
-void main() {
+
+void main() async {
+  await Config.loadConfig();
   runApp(MyApp());
 }
 
