@@ -30,6 +30,6 @@ flutter:
 
   assets:
 #    - .env
-    - config.json
+    - assets/config.json
 
 
